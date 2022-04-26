@@ -13,7 +13,8 @@ public class Collector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ( other.gameObject.tag == "Crystal" ) other.gameObject.SetActive(false);
+        if (other.gameObject.tag == "Crystal") other.gameObject.SetActive(false);
+   
         if ( other.gameObject.tag == "ChangeColorPlace" ) gameManager.UpdateRoad();
     }
 

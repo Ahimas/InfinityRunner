@@ -13,7 +13,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        crystalPool = new List<GameObject>();
+        
         
     }
 
@@ -27,10 +27,12 @@ public class SpawnManager : MonoBehaviour
     {
         GameObject crystal;
 
+        crystalPool = new List<GameObject>();
+
         for ( int i = 0; i < requiredQnty; i++)
         {
             crystal = Instantiate(crystalPrefab);
-            //crystalPool.Add(crystal);
+            crystalPool.Add(crystal);
             crystal.SetActive(false);
         }
     }

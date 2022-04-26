@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2977830969625371556}
   m_Layer: 0
   m_Name: Crystal01
-  m_TagString: Untagged
+  m_TagString: Crystal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,6 +89,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8076952028327177078}
   - component: {fileID: 2419245035109816545}
+  - component: {fileID: -7305809688897585113}
+  - component: {fileID: 7703929875136394879}
   m_Layer: 0
   m_Name: Crystal01
   m_TagString: Crystal
@@ -121,5 +123,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 884bde2def2f9be40a506b09993b8ed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &-7305809688897585113
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8889201587218526668}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0370765, z: 1}
+  m_Center: {x: 0, y: 0.4973638, z: 0}
+--- !u!114 &7703929875136394879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8889201587218526668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245b168d0b58644438284bb0676274b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

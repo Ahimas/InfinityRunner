@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     {
         changeColorPlace = GameObject.Find("ChangeColorPlace").GetComponent<Renderer>();
         spawnManager.SetColors(gameColors);
-        spawnManager.PrepareCrystalPool(gameColors.Length * gameColors.Length);
+        spawnManager.PrepareCrystalPool((int)(20 / spawnInterval));
         
         UpdateRoad();
 
