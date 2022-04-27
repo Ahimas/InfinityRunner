@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] private Transform[] spawnPositions;
     [SerializeField] private GameObject crystalPrefab;
-    [SerializeField] private Color[] gameColors;
+        
+    private Color[] gameColors;
+
+    private GameManager gameManager;
 
     private List<GameObject> crystalPool;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         
     }
 
@@ -37,15 +39,24 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    internal void DisableCrystalsInPool()
+    {
+        foreach (GameObject crystal in crystalPool)
+        {
+            if (crystal.activeSelf) crystal.SetActive(false);
+        }
+    }
+        
+
     internal void SpawnCrystalRow()
     {
         gameColors = ShuffleColors(gameColors);
 
-        for ( int i = 0; i < spawnPositions.Length; i++ )
+        for ( int i = 0; i < gameManager.spawnPositions.Length; i++ )
         {
             GameObject crystal = GetCrystal();
 
-            crystal.transform.position = spawnPositions[i].position;
+            crystal.transform.position = gameManager.spawnPositions[i].position;
             crystal.GetComponentInChildren<MeshRenderer>().material.color = gameColors[i];
             crystal.SetActive(true);
         }
