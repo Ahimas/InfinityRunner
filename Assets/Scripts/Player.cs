@@ -43,10 +43,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TouchController();
-        KeyboardController();
-        
-
+        if ( gameManager.isGameActive )
+        {
+            TouchController();
+            KeyboardController();
+        }
 
     }
 
