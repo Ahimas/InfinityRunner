@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreCounter;
 
     private Renderer changeColorPlace;
+    private GameObject player;
 
     private bool isReadyForSpawn;
 
@@ -32,6 +33,8 @@ public class GameManager : MonoBehaviour
         changeColorPlace = GameObject.Find("ChangeColorPlace").GetComponent<Renderer>();
         spawnManager.SetColors(gameColors);
         spawnManager.PrepareCrystalPool((int)(20 / spawnInterval));
+        player = GameObject.Find("Player");
+        
 
         startMenu.SetActive(true);
 
@@ -70,8 +73,8 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SetRandomPlayerColor();
         UpdateRoad();
+        SetRandomPlayerColor();
 
         scores = minScores;
         UpdateScore(minScores);
@@ -85,8 +88,8 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        GameObject.Find("Player").transform.localScale = Vector3.one;
-        GameObject.Find("Player").GetComponent<Animator>().SetBool("isGameOver", false);
+        player.transform.localScale = Vector3.one;
+        player.GetComponent<Animator>().SetBool("isGameOver", false);
         gameOverMenu.SetActive(false);
         spawnManager.DisableCrystalsInPool();
         StartGame();
@@ -94,7 +97,7 @@ public class GameManager : MonoBehaviour
 
     void SetRandomPlayerColor()
     {
-        GameObject.Find("Player").GetComponentInChildren<SkinnedMeshRenderer>().material.color = gameColors[Random.Range(0, gameColors.Length)];
+        player.GetComponentInChildren<SkinnedMeshRenderer>().material.color = ChangeColor();
     }
 
     private Color ChangeColor()
